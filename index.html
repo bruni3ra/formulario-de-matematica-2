@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Contato</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Fale Conosco 👋</h1>
+            <p>Preencha o formulário abaixo para enviar sua mensagem.</p>
+            <div class="counter-badge">
+                <span id="total-contacts">0</span> contatos cadastrados
+            </div>
+        </header>
+
+        <form id="contact-form" novalidate>
+            <!-- 1. Nome (Texto) -->
+            <div class="form-group">
+                <label for="nome">Nome Completo *</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome completo">
+                <span class="error-message" id="error-nome"></span>
+            </div>
+
+            <!-- 2. E-mail (E-mail) -->
+            <div class="form-group">
+                <label for="email">E-mail *</label>
+                <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com">
+                <span class="error-message" id="error-email"></span>
+            </div>
+
+            <!-- 3. Telefone (Telefone) -->
+            <div class="form-group">
+                <label for="telefone">Telefone / WhatsApp *</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" maxlength="15">
+                <span class="error-message" id="error-telefone"></span>
+            </div>
+
+            <!-- 4. Data de Nascimento (Data) -->
+            <div class="form-group">
+                <label for="dataNascimento">Data de Nascimento *</label>
+                <input type="date" id="dataNascimento" name="dataNascimento">
+                <span class="error-message" id="error-dataNascimento"></span>
+            </div>
+
+            <!-- 5. Assunto (Seleção) -->
+            <div class="form-group">
+                <label for="assunto">Assunto *</label>
+                <select id="assunto" name="assunto">
+                    <option value="">Selecione uma opção...</option>
+                    <option value="duvida">Dúvida</option>
+                    <option value="suporte">Suporte Técnico</option>
+                    <option value="orcamento">Orçamento</option>
+                    <option value="parceria">Parceria</option>
+                    <option value="outro">Outro</option>
+                </select>
+                <span class="error-message" id="error-assunto"></span>
+            </div>
+
+            <!-- 6. Tipo de Contato (Opções / Radio) -->
+            <div class="form-group">
+                <label>Tipo de Contato *</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="tipoContato" value="pessoal"> Pessoal
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="tipoContato" value="empresarial"> Empresarial
+                    </label>
+                </div>
+                <span class="error-message" id="error-tipoContato"></span>
+            </div>
+
+            <!-- 7. Mensagem (Área de Texto + Contador) -->
+            <div class="form-group">
+                <label for="mensagem">Mensagem *</label>
+                <textarea id="mensagem" name="mensagem" rows="4" placeholder="Escreva sua mensagem aqui..." maxlength="300"></textarea>
+                <div class="char-counter">
+                    <span id="char-count">0</span> / 300 caracteres
+                </div>
+                <span class="error-message" id="error-mensagem"></span>
+            </div>
+
+            <!-- 8. Termos (Caixa de Marcação / Checkbox) -->
+            <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="termos" name="termos">
+                    Concordo com os termos e política de privacidade *
+                </label>
+                <span class="error-message" id="error-termos"></span>
+            </div>
+
+            <button type="submit" id="btn-submit">Enviar Mensagem 🚀</button>
+        </form>
+
+        <div id="toast" class="toast hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
